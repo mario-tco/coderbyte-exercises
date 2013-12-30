@@ -44,7 +44,7 @@ assertFalse(isString({}), "object");
 assertFalse(isString(null), "null");
 assertFalse(isString(), "nothing");
 assertFalse(isString(new Function("String")), "nothing");
-assertTrue(false, "wat");
+
 
 function assertTrue(value, message){
 	if(!value){
