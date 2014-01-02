@@ -1,12 +1,15 @@
 
 function ReverseString(str){
+	if(str === ''){
+		console.log('\nEmpty String');
+		return str;
+	}
 	if(isString(str)){
-		var strArray = str.split("");
+		//var strArray = str.split("");
 		var result = '';
-		for(var i = strArray.length-1; i >= 0; i--){
-			result = result + strArray[i];
-		}
+		for(var i = str.length-1;i>=0;result+=str[i--]){}
 		console.log(result);
+		return result;
 	}
 }
 
@@ -31,10 +34,10 @@ function isString(str){
 }
 
 // Blood Lust! Execute!
-var input = 'This is awesome!';
+var input = '';
 ReverseString(input);
 
-// Unit tests
+//Unit tests
 console.log('\n \nUnit test time!')
 assertTrue(isString("string literal"), "string literal");
 assertTrue(isString(new String("String object")), "String object");
@@ -44,9 +47,12 @@ assertFalse(isString({}), "object");
 assertFalse(isString(null), "null");
 assertFalse(isString(), "nothing");
 assertFalse(isString(new Function("String")), "nothing");
+assertTrue('9876543210' == ReverseString('0123456789'), "Basic test case");
+assertTrue('' == ReverseString(''), "Empty String");
 
 
 function assertTrue(value, message){
+	console.log(value);
 	if(!value){
 		console.log('Assertion error: ' + message)
 	}
